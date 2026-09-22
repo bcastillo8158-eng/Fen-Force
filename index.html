@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fenómeno del Niño | Alerta Perú</title>
+
+  <meta
+    name="description"
+    content="Aplicación educativa e interactiva sobre el Fenómeno del Niño y la prevención de desastres en el Perú."
+  >
+</head>
+
+<body>
+
+  <!-- =========================
+       APP
+  ========================== -->
+  <div class="app">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="brand">
+        <div class="brand-logo">
+          FN
+        </div>
+
+        <div class="brand-text">
+          <strong>Fenómeno</strong>
+          <span>del Niño</span>
+        </div>
+      </div>
+
+      <button class="close-sidebar" id="closeSidebar" aria-label="Cerrar menú">
+        ×
+      </button>
+
+      <nav class="main-nav">
+
+        <button class="nav-item active" data-section="inicio">
+          <span class="nav-icon">⌂</span>
+          <span>Inicio</span>
+        </button>
+
+        <button class="nav-item" data-section="informacion">
+          <span class="nav-icon">i</span>
+          <span>Información</span>
+        </button>
+
+        <button class="nav-item" data-section="causas">
+          <span class="nav-icon">◉</span>
+          <span>Causas</span>
+        </button>
+
+        <button class="nav-item" data-section="consecuencias">
+          <span class="nav-icon">!</span>
+          <span>Consecuencias</span>
+        </button>
+
+        <button class="nav-item" data-section="mapa">
+          <span class="nav-icon">⌖</span>
+          <span>Mapa de riesgos</span>
+        </button>
+
+        <button class="nav-item" data-section="prevencion">
+          <span class="nav-icon">✓</span>
+          <span>Prevención</span>
+        </button>
+
+        <button class="nav-item" data-section="mochila">
+          <span class="nav-icon">□</span>
+          <span>Mochila de emergencia</span>
+        </button>
+
+        <button class="nav-item" data-section="alertas">
+          <span class="nav-icon">△</span>
+          <span>Alertas</span>
+        </button>
+
+        <button class="nav-item" data-section="galeria">
+          <span class="nav-icon">▣</span>
+          <span>Galería</span>
+        </button>
+
+        <button class="nav-item" data-section="quiz">
+          <span class="nav-icon">?</span>
+          <span>Quiz educativo</span>
+        </button>
+
+        <button class="nav-item" data-section="glosario">
+          <span class="nav-icon">A</span>
+          <span>Glosario</span>
+        </button>
+
+        <button class="nav-item" data-section="fuentes">
+          <span class="nav-icon">↗</span>
+          <span>Fuentes</span>
+        </button>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        <div class="sidebar-status">
+          <div class="status-dot"></div>
+          <div>
+            <strong>Modo educativo</strong>
+            <span>Aplicación informativa</span>
+          </div>
+        </div>
+
+        <button class="dark-mode-button" id="themeToggle">
+          <span id="themeIcon">☾</span>
+          <span id="themeText">Modo oscuro</span>
+        </button>
+
+      </div>
+
+    </aside>
+
+    <!-- =========================
+         OVERLAY MOBILE
+    ========================== -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+    <main class="main">
+
+      <!-- =========================
+           HEADER
+      ========================== -->
+      <header class="topbar">
+
+        <div class="topbar-left">
+
+          <button class="menu-button" id="openSidebar" aria-label="Abrir menú">
+            ☰
+          </button>
+
+          <div>
+            <span class="topbar-kicker">APP EDUCATIVA</span>
+            <h1 id="pageTitle">Inicio</h1>
+          </div>
+
+        </div>
+
+        <div class="topbar-actions">
+
+          <div class="search-box">
+            <span>⌕</span>
+            <input
+              type="search"
+              id="globalSearch"
+              placeholder="Buscar información..."
+              autocomplete="off"
+            >
+          </div>
+
+          <button class="top-icon-button" id="favoriteButton" title="Favoritos">
+            ★
+          </button>
+
+          <button class="profile-button" id="aboutButton">
+            ?
+          </button>
+
+        </div>
+
+      </header>
+
+      <!-- =========================
+           SEARCH RESULTS
+      ========================== -->
+      <section class="search-results-panel hidden" id="searchPanel">
+
+        <div class="search-results-header">
+          <div>
+            <span class="section-kicker">BUSCADOR</span>
+            <h3>Resultados</h3>
+          </div>
+
+          <button id="closeSearch" class="small-close">×</button>
+        </div>
+
+        <div id="searchResults"></div>
+
+      </section>
+
+      <!-- =========================
+           CONTENT
+      ========================== -->
+      <div class="content">
+
+        <!-- =========================
+             INICIO
+        ========================== -->
+        <section class="app-section active-section" id="inicio">
+
+          <div class="hero">
+
+            <div class="hero-content">
+
+              <div class="hero-label">
+                <span class="pulse"></span>
+                EDUCACIÓN Y PREVENCIÓN
+              </div>
+
+              <h2>
+                Conoce el Fenómeno del Niño.
+                <span>Prepárate mejor.</span>
+              </h2>
+
+              <p>
+                Aprende cómo funciona, cuáles son sus principales impactos
+                en el Perú y qué medidas pueden ayudar a reducir riesgos.
+              </p>
+
+              <div class="hero-buttons">
+
+                <button
+                  class="primary-button"
+                  data-go="informacion"
+                >
+                  Explorar información
+                </button>
+
+                <button
+                  class="secondary-button"
+                  data-go="prevencion"
+                >
+                  Ver prevención
+                </button>
+
+              </div>
+
+              <div class="hero-note">
+                Los datos meteorológicos mostrados en esta demostración
+                son informativos y no sustituyen alertas oficiales.
+              </div>
+
+            </div>
+
+            <div class="hero-visual">
+
+              <div class="ocean-card">
+
+                <div class="ocean-sun"></div>
+
+                <div class="wave wave-one"></div>
+                <div class="wave wave-two"></div>
+                <div class="wave wave-three"></div>
+
+                <div class="coast-shape"></div>
+
+                <div class="visual-badge">
+                  <span>Pacífico</span>
+                  <strong>Temperatura del mar</strong>
+                  <em>Referencia educativa</em>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Dashboard -->
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">RESUMEN</span>
+              <h3>Información rápida</h3>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+
+            <article class="stat-card">
+              <div class="stat-icon blue-icon">01</div>
+              <div>
+                <span>Fenómeno</span>
+                <strong>Climático</strong>
+                <small>Relación océano-atmósfera</small>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon orange-icon">02</div>
+              <div>
+                <span>Riesgo</span>
+                <strong>Inundaciones</strong>
+                <small>En determinadas zonas</small>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon red-icon">03</div>
+              <div>
+                <span>Riesgo</span>
+                <strong>Huaicos</strong>
+                <small>Dependiendo de las lluvias</small>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon green-icon">04</div>
+              <div>
+                <span>Prioridad</span>
+                <strong>Prevención</strong>
+                <small>Prepararse antes de la emergencia</small>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Home cards -->
+          <div class="home-grid">
+
+            <article class="feature-card large-feature">
+
+              <div class="feature-card-top">
+                <span class="mini-tag">APRENDE</span>
+                <button class="card-favorite" data-fav="El Niño" title="Guardar">
+                  ☆
+                </button>
+              </div>
+
+              <h3>¿Qué es el Fenómeno del Niño?</h3>
+
+              <p>
+                Conoce de manera sencilla la interacción entre el océano
+                Pacífico y la atmósfera y cómo puede modificar las condiciones
+                climáticas.
+              </p>
+
+              <button class="text-button" data-go="informacion">
+                Leer explicación
+                <span>→</span>
+              </button>
+
+            </article>
+
+            <article class="feature-card">
+
+              <span class="mini-tag">PREVENCIÓN</span>
+
+              <h3>¿Estás preparado?</h3>
+
+              <p>
+                Revisa las recomendaciones para lluvias intensas,
+                inundaciones y huaicos.
+              </p>
+
+              <button class="text-button" data-go="prevencion">
+                Ver recomendaciones
+                <span>→</span>
+              </button>
+
+            </article>
+
+            <article class="feature-card">
+
+              <span class="mini-tag">EMERGENCIA</span>
+
+              <h3>Mochila de emergencia</h3>
+
+              <p>
+                Consulta una lista práctica de elementos que pueden ser útiles
+                durante una emergencia.
+              </p>
+
+              <button class="text-button" data-go="mochila">
+                Revisar lista
+                <span>→</span>
+              </button>
+
+            </article>
+
+          </div>
+
+          <div class="disclaimer-card">
+            <strong>Importante</strong>
+            <p>
+              Para decisiones reales ante una emergencia debes consultar
+              información oficial y actualizada de las autoridades competentes.
+            </p>
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             INFORMACIÓN
+        ========================== -->
+        <section class="app-section" id="informacion">
+
+          <div class="page-hero">
+            <span class="section-kicker">CONCEPTOS BÁSICOS</span>
+            <h2>¿Qué es el Fenómeno del Niño?</h2>
+            <p>
+              Es un fenómeno climático asociado a cambios anómalos en las
+              condiciones del océano Pacífico tropical y la atmósfera.
+            </p>
+          </div>
+
+          <div class="info-layout">
+
+            <article class="info-main-card">
+
+              <div class="info-number">01</div>
+
+              <h3>Una relación entre el océano y la atmósfera</h3>
+
+              <p>
+                El sistema climático del Pacífico funciona mediante una
+                interacción constante entre el océano, el viento y la atmósfera.
+                Cuando estas condiciones cambian, también pueden modificarse
+                las lluvias, temperaturas y otros patrones meteorológicos.
+              </p>
+
+              <p>
+                En el Perú, estos cambios pueden producir efectos diferentes
+                según la región y la intensidad del evento.
+              </p>
+
+              <div class="quote-box">
+                <span>IDEA CLAVE</span>
+                <strong>
+                  El impacto no es igual en todas las regiones.
+                </strong>
+              </div>
+
+            </article>
+
+            <aside class="side-facts">
+
+              <div class="fact-box">
+                <span class="fact-icon">01</span>
+                <strong>Océano Pacífico</strong>
+                <p>
+                  Su temperatura superficial y circulación forman parte de la
+                  dinámica del fenómeno.
+                </p>
+              </div>
+
+              <div class="fact-box">
+                <span class="fact-icon">02</span>
+                <strong>Atmósfera</strong>
+                <p>
+                  Los cambios atmosféricos interactúan con los cambios del
+                  océano.
+                </p>
+              </div>
+
+              <div class="fact-box">
+                <span class="fact-icon">03</span>
+                <strong>Clima</strong>
+                <p>
+                  Las condiciones de lluvia y temperatura pueden cambiar
+                  respecto a los valores habituales.
+                </p>
+              </div>
+
+            </aside>
+
+          </div>
+
+          <div class="info-cards-grid">
+
+            <article class="simple-card">
+              <div class="simple-card-icon">A</div>
+              <h3>Océano</h3>
+              <p>
+                Las variaciones de temperatura del mar forman parte de las
+                señales utilizadas para estudiar estos fenómenos.
+              </p>
+            </article>
+
+            <article class="simple-card">
+              <div class="simple-card-icon">B</div>
+              <h3>Vientos</h3>
+              <p>
+                Los patrones de circulación atmosférica pueden modificarse
+                durante determinados eventos.
+              </p>
+            </article>
+
+            <article class="simple-card">
+              <div class="simple-card-icon">C</div>
+              <h3>Precipitación</h3>
+              <p>
+                Algunas zonas pueden experimentar cambios importantes en
+                la cantidad y distribución de las lluvias.
+              </p>
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             CAUSAS
+        ========================== -->
+        <section class="app-section" id="causas">
+
+          <div class="page-hero">
+            <span class="section-kicker">COMPRENDE EL PROCESO</span>
+            <h2>Principales factores</h2>
+            <p>
+              Esta sección presenta una explicación visual y sencilla de los
+              procesos relacionados con el Fenómeno del Niño.
+            </p>
+          </div>
+
+          <div class="process-container">
+
+            <article class="process-step">
+              <div class="process-circle">01</div>
+              <div class="process-content">
+                <span>OCÉANO</span>
+                <h3>Cambios en la temperatura del Pacífico</h3>
+                <p>
+                  Las alteraciones en la temperatura superficial del mar
+                  forman parte de los indicadores utilizados para estudiar
+                  el fenómeno.
+                </p>
+              </div>
+            </article>
+
+            <div class="process-line"></div>
+
+            <article class="process-step">
+              <div class="process-circle">02</div>
+              <div class="process-content">
+                <span>ATMÓSFERA</span>
+                <h3>Cambios en la circulación</h3>
+                <p>
+                  La atmósfera responde y también influye en la distribución
+                  de la humedad, las nubes y las precipitaciones.
+                </p>
+              </div>
+            </article>
+
+            <div class="process-line"></div>
+
+            <article class="process-step">
+              <div class="process-circle">03</div>
+              <div class="process-content">
+                <span>IMPACTO</span>
+                <h3>Variaciones climáticas</h3>
+                <p>
+                  El resultado puede incluir modificaciones de lluvias,
+                  temperatura y condiciones ambientales en distintas zonas.
+                </p>
+              </div>
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONSECUENCIAS
+        ========================== -->
+        <section class="app-section" id="consecuencias">
+
+          <div class="page-hero">
+            <span class="section-kicker">IMPACTOS</span>
+            <h2>Consecuencias en el Perú</h2>
+            <p>
+              Las consecuencias dependen de la zona, la intensidad y otros
+              factores del evento.
+            </p>
+          </div>
+
+          <div class="impact-grid">
+
+            <article class="impact-card impact-water">
+              <div class="impact-overlay"></div>
+              <div class="impact-card-content">
+                <span>01</span>
+                <h3>Inundaciones</h3>
+                <p>
+                  El exceso de agua puede afectar viviendas, vías,
+                  infraestructura y actividades económicas.
+                </p>
+              </div>
+            </article>
+
+            <article class="impact-card impact-land">
+              <div class="impact-overlay"></div>
+              <div class="impact-card-content">
+                <span>02</span>
+                <h3>Huaicos</h3>
+                <p>
+                  Las lluvias intensas pueden activar movimientos de lodo,
+                  piedras y otros materiales en determinadas zonas.
+                </p>
+              </div>
+            </article>
+
+            <article class="impact-card impact-road">
+              <div class="impact-overlay"></div>
+              <div class="impact-card-content">
+                <span>03</span>
+                <h3>Infraestructura</h3>
+                <p>
+                  Carreteras, puentes y servicios pueden sufrir daños
+                  cuando ocurren eventos extremos.
+                </p>
+              </div>
+            </article>
+
+            <article class="impact-card impact-agriculture">
+              <div class="impact-overlay"></div>
+              <div class="impact-card-content">
+                <span>04</span>
+                <h3>Agricultura</h3>
+                <p>
+                  Los cambios en lluvias y temperatura pueden afectar
+                  diferentes actividades agrícolas.
+                </p>
+              </div>
+            </article>
+
+            <article class="impact-card impact-health">
+              <div class="impact-overlay"></div>
+              <div class="impact-card-content">
+                <span>05</span>
+                <h3>Servicios</h3>
+                <p>
+                  Los eventos extremos pueden interrumpir transporte,
+                  agua, electricidad y otros servicios.
+                </p>
+              </div>
+            </article>
+
+            <article class="impact-card impact-city">
+              <div class="impact-overlay"></div>
+              <div class="impact-card-content">
+                <span>06</span>
+                <h3>Comunidades</h3>
+                <p>
+                  Las poblaciones ubicadas en zonas expuestas pueden
+                  necesitar medidas especiales de preparación.
+                </p>
+              </div>
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             MAPA
+        ========================== -->
+        <section class="app-section" id="mapa">
+
+          <div class="page-hero">
+            <span class="section-kicker">PERÚ</span>
+            <h2>Mapa de riesgos</h2>
+            <p>
+              Selecciona una región para consultar una descripción educativa
+              de sus riesgos potenciales.
+            </p>
+          </div>
+
+          <div class="map-layout">
+
+            <div class="peru-map">
+
+              <div class="map-title">
+                <strong>Mapa interactivo</strong>
+                <span>Selecciona una zona</span>
+              </div>
+
+              <div class="map-figure">
+
+                <div class="map-glow"></div>
+
+                <button
+                  class="map-region north"
+                  data-region="norte"
+                  title="Norte"
+                >
+                  Norte
+                </button>
+
+                <button
+                  class="map-region center"
+                  data-region="centro"
+                  title="Centro"
+                >
+                  Centro
+                </button>
+
+                <button
+                  class="map-region south"
+                  data-region="sur"
+                  title="Sur"
+                >
+                  Sur
+                </button>
+
+                <button
+                  class="map-region coast"
+                  data-region="costa"
+                  title="Costa"
+                >
+                  Costa
+                </button>
+
+                <button
+                  class="map-region sierra"
+                  data-region="sierra"
+                  title="Sierra"
+                >
+                  Sierra
+                </button>
+
+              </div>
+
+              <div class="map-legend">
+
+                <span>
+                  <i class="legend-low"></i>
+                  Menor referencia
+                </span>
+
+                <span>
+                  <i class="legend-medium"></i>
+                  Atención
+                </span>
+
+                <span>
+                  <i class="legend-high"></i>
+                  Mayor exposición
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="region-information" id="regionInformation">
+
+              <span class="section-kicker">REGIÓN</span>
+
+              <h3>Selecciona una zona</h3>
+
+              <p>
+                Pulsa uno de los botones del mapa para mostrar información.
+              </p>
+
+              <div class="region-stats">
+
+                <div>
+                  <span>Riesgo educativo</span>
+                  <strong id="regionRisk">—</strong>
+                </div>
+
+                <div>
+                  <span>Fenómeno asociado</span>
+                  <strong id="regionPhenomenon">—</strong>
+                </div>
+
+              </div>
+
+              <div class="region-advice" id="regionAdvice">
+                Aquí aparecerán recomendaciones.
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             PREVENCIÓN
+        ========================== -->
+        <section class="app-section" id="prevencion">
+
+          <div class="page-hero">
+            <span class="section-kicker">PREPARACIÓN</span>
+            <h2>¿Qué hacer ante una emergencia?</h2>
+            <p>
+              La prevención comienza antes de que ocurra un evento.
+            </p>
+          </div>
+
+          <div class="accordion">
+
+            <article class="accordion-item open">
+
+              <button class="accordion-header">
+                <span>
+                  <i>01</i>
+                  Antes de una emergencia
+                </span>
+                <b>+</b>
+              </button>
+
+              <div class="accordion-content">
+
+                <div class="prevention-grid">
+
+                  <div class="prevention-point">
+                    <span>01</span>
+                    <p>Identifica las zonas seguras de tu vivienda.</p>
+                  </div>
+
+                  <div class="prevention-point">
+                    <span>02</span>
+                    <p>Conoce las rutas de evacuación de tu comunidad.</p>
+                  </div>
+
+                  <div class="prevention-point">
+                    <span>03</span>
+                    <p>Prepara una mochila de emergencia.</p>
+                  </div>
+
+                  <div class="prevention-point">
+                    <span>04</span>
+                    <p>Mantén documentos importantes protegidos.</p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </article>
+
+            <article class="accordion-item">
+
+              <button class="accordion-header">
+                <span>
+                  <i>02</i>
+                  Durante lluvias intensas
+                </span>
+                <b>+</b>
+              </button>
+
+              <div class="accordion-content">
+
+                <div class="prevention-list">
+
+                  <div>Evita cruzar ríos, quebradas o zonas inundadas.</div>
+                  <div>Sigue las indicaciones de las autoridades.</div>
+                  <div>Desconecta equipos eléctricos cuando sea seguro hacerlo.</div>
+                  <div>Aléjate de postes y cables dañados.</div>
+
+                </div>
+
+              </div>
+
+            </article>
+
+            <article class="accordion-item">
+
+              <button class="accordion-header">
+                <span>
+                  <i>03</i>
+                  Durante un huaico
+                </span>
+                <b>+</b>
+              </button>
+
+              <div class="accordion-content">
+
+                <div class="prevention-list">
+
+                  <div>Evacúa hacia una zona segura previamente identificada.</div>
+                  <div>No intentes atravesar la corriente de lodo.</div>
+                  <div>Evita permanecer cerca de quebradas activas.</div>
+                  <div>Usa rutas de evacuación oficiales.</div>
+
+                </div>
+
+              </div>
+
+            </article>
+
+            <article class="accordion-item">
+
+              <button class="accordion-header">
+                <span>
+                  <i>04</i>
+                  Después de la emergencia
+                </span>
+                <b>+</b>
+              </button>
+
+              <div class="accordion-content">
+
+                <div class="prevention-list">
+
+                  <div>No regreses a zonas peligrosas sin autorización.</div>
+                  <div>Revisa daños antes de ingresar a una vivienda.</div>
+                  <div>Evita agua o alimentos potencialmente contaminados.</div>
+                  <div>Informa sobre emergencias a los canales oficiales.</div>
+
+                </div>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             MOCHILA
+        ========================== -->
+        <section class="app-section" id="mochila">
+
+          <div class="page-hero">
+            <span class="section-kicker">LISTA DE PREPARACIÓN</span>
+            <h2>Mochila de emergencia</h2>
+            <p>
+              Marca los elementos que ya tienes preparados.
+            </p>
+          </div>
+
+          <div class="kit-layout">
+
+            <div class="kit-card">
+
+              <div class="kit-header">
+
+                <div>
+                  <span class="section-kicker">CHECKLIST</span>
+                  <h3>Elementos esenciales</h3>
+                </div>
+
+                <div class="kit-progress">
+                  <strong id="kitPercent">0%</strong>
+                  <span>completado</span>
+                </div>
+
+              </div>
+
+              <div class="progress-bar">
+                <div id="kitProgressFill"></div>
+              </div>
+
+              <div class="kit-list" id="kitList">
+
+                <label class="kit-item">
+                  <input type="checkbox">
+                  <span class="custom-check"></span>
+                  <span class="kit-text">
+                    Agua
+                    <small>Para consumo y necesidades básicas</small>
+                  </span>
+                </label>
+
+                <label class="kit-item">
+                  <input type="checkbox">
+                  <span class="custom-check"></span>
+                  <span class="kit-text">
+                    Alimentos no perecibles
+                    <small>Productos que puedan almacenarse</small>
+                  </span>
+                </label>
+
+                <label class="kit-item">
+                  <input type="checkbox">
+                  <span class="custom-check"></span>
+                  <span class="kit-text">
+                    Linterna
+                    <small>Idealmente con baterías de repuesto</small>
+                  </span>
+                </label>
+
+                <label class="kit-item">
+                  <input type="checkbox">
+                  <span class="custom-check"></span>
+                  <span class="kit-text">
+                    Radio
+                    <small>Para recibir información</small>
+                  </span>
+                </label>
+
+                <label class="kit-item">
+                  <input type="checkbox">
+                  <span class="custom-check"></span>
+                  <span class="kit-text">
+                    Botiquín
+                    <small>Elementos básicos de primeros auxilios</small>
+                  </span>
+                </label>
+
+                <label class="kit-item">
+                  <input type="checkbox">
+                  <span class="custom-check"></span>
+                  <span class="kit-text">
+                    Documentos
+                    <small>Copias protegidas de documentos importantes</small>
+                  </span>
+                </label>
+
+                <label class="kit-item">
+                  <input type="checkbox">
+                  <span class="custom-check"></span>
+                  <span class="kit-text">
+                    Higiene personal
+                    <small>Artículos básicos de limpieza</small>
+                  </span>
+                </label>
+
+                <label class="kit-item">
+                  <input type="checkbox">
+                  <span class="custom-check"></span>
+                  <span class="kit-text">
+                    Silbato
+                    <small>Útil para señalización</small>
+                  </span>
+                </label>
+
+              </div>
+
+              <button class="outline-button" id="resetKit">
+                Reiniciar lista
+              </button>
+
+            </div>
+
+            <aside class="kit-info">
+
+              <div class="kit-info-card">
+                <span class="kit-big-icon">+</span>
+                <h3>Consejo</h3>
+                <p>
+                  Guarda la mochila en un lugar conocido y accesible para
+                  todos los integrantes del hogar.
+                </p>
+              </div>
+
+              <div class="kit-info-card">
+                <span class="kit-big-icon">i</span>
+                <h3>Recuerda</h3>
+                <p>
+                  La preparación debe adaptarse a las necesidades específicas
+                  de cada familia.
+                </p>
+              </div>
+
+            </aside>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             ALERTAS
+        ========================== -->
+        <section class="app-section" id="alertas">
+
+          <div class="page-hero">
+            <span class="section-kicker">INFORMACIÓN</span>
+            <h2>Centro de alertas</h2>
+            <p>
+              Esta versión contiene información demostrativa para mostrar
+              cómo funcionaría el módulo de alertas.
+            </p>
+          </div>
+
+          <div class="alert-banner">
+
+            <div class="alert-symbol">!</div>
+
+            <div>
+              <span>IMPORTANTE</span>
+              <h3>Las alertas reales deben consultarse en fuentes oficiales.</h3>
+            </div>
+
+          </div>
+
+          <div class="alerts-grid">
+
+            <article class="alert-card">
+              <div class="alert-top">
+                <span class="alert-level high">PRECAUCIÓN</span>
+                <span>Demo</span>
+              </div>
+
+              <h3>Precipitaciones intensas</h3>
+
+              <p>
+                Mantente informado sobre posibles cambios del clima y evita
+                zonas expuestas a inundaciones.
+              </p>
+
+              <button class="text-button show-alert-detail" data-alert="Lluvias">
+                Ver recomendación →
+              </button>
+            </article>
+
+            <article class="alert-card">
+              <div class="alert-top">
+                <span class="alert-level medium">ATENCIÓN</span>
+                <span>Demo</span>
+              </div>
+
+              <h3>Riesgo de inundación</h3>
+
+              <p>
+                Evita desplazarte por áreas inundadas y sigue las indicaciones
+                de las autoridades.
+              </p>
+
+              <button class="text-button show-alert-detail" data-alert="Inundación">
+                Ver recomendación →
+              </button>
+            </article>
+
+            <article class="alert-card">
+              <div class="alert-top">
+                <span class="alert-level info">INFORMACIÓN</span>
+                <span>Demo</span>
+              </div>
+
+              <h3>Preparación familiar</h3>
+
+              <p>
+                Revisa rutas de evacuación y comprueba el contenido de tu
+                mochila de emergencia.
+              </p>
+
+              <button class="text-button show-alert-detail" data-alert="Preparación">
+                Ver recomendación →
+              </button>
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             GALERÍA
+        ========================== -->
+        <section class="app-section" id="galeria">
+
+          <div class="page-hero">
+            <span class="section-kicker">RECURSOS VISUALES</span>
+            <h2>Galería educativa</h2>
+            <p>
+              Recursos visuales organizados por temas.
+            </p>
+          </div>
+
+          <div class="gallery-grid">
+
+            <article class="gallery-item gallery-ocean">
+              <div>
+                <span>01</span>
+                <h3>Océano Pacífico</h3>
+                <p>Interacción océano-atmósfera</p>
+              </div>
+            </article>
+
+            <article class="gallery-item gallery-rain">
+              <div>
+                <span>02</span>
+                <h3>Lluvias intensas</h3>
+                <p>Condiciones meteorológicas</p>
+              </div>
+            </article>
+
+            <article class="gallery-item gallery-flood">
+              <div>
+                <span>03</span>
+                <h3>Inundaciones</h3>
+                <p>Riesgos para zonas expuestas</p>
+              </div>
+            </article>
+
+            <article class="gallery-item gallery-land">
+              <div>
+                <span>04</span>
+                <h3>Huaicos</h3>
+                <p>Movimientos de lodo y materiales</p>
+              </div>
+            </article>
+
+            <article class="gallery-item gallery-family">
+              <div>
+                <span>05</span>
+                <h3>Preparación</h3>
+                <p>Organización familiar</p>
+              </div>
+            </article>
+
+            <article class="gallery-item gallery-city">
+              <div>
+                <span>06</span>
+                <h3>Comunidades</h3>
+                <p>Prevención y resiliencia</p>
+              </div>
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             QUIZ
+        ========================== -->
+        <section class="app-section" id="quiz">
+
+          <div class="page-hero">
+            <span class="section-kicker">APRENDIZAJE</span>
+            <h2>Quiz educativo</h2>
+            <p>
+              Comprueba cuánto aprendiste sobre el Fenómeno del Niño.
+            </p>
+          </div>
+
+          <div class="quiz-card" id="quizCard">
+
+            <div class="quiz-header">
+
+              <div>
+                <span class="section-kicker">PREGUNTA</span>
+                <strong id="questionNumber">1 / 8</strong>
+              </div>
+
+              <div class="quiz-progress">
+                <div id="quizProgress"></div>
+              </div>
+
+            </div>
+
+            <div class="quiz-body">
+
+              <h3 id="questionText">
+                Cargando pregunta...
+              </h3>
+
+              <div class="answers" id="answers"></div>
+
+            </div>
+
+            <div class="quiz-footer">
+
+              <span id="quizFeedback"></span>
+
+              <button class="primary-button" id="nextQuestion">
+                Siguiente
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="quiz-result hidden" id="quizResult">
+
+            <div class="result-circle">
+              <span id="finalScore">0</span>
+            </div>
+
+            <span class="section-kicker">RESULTADO</span>
+            <h3>Quiz completado</h3>
+
+            <p id="resultMessage"></p>
+
+            <button class="primary-button" id="restartQuiz">
+              Repetir quiz
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             GLOSARIO
+        ========================== -->
+        <section class="app-section" id="glosario">
+
+          <div class="page-hero">
+            <span class="section-kicker">DICCIONARIO</span>
+            <h2>Glosario</h2>
+            <p>
+              Conceptos importantes explicados de forma sencilla.
+            </p>
+          </div>
+
+          <div class="glossary-search">
+            <span>⌕</span>
+            <input
+              type="text"
+              id="glossarySearch"
+              placeholder="Buscar término..."
+            >
+          </div>
+
+          <div class="glossary-grid" id="glossaryGrid">
+
+            <article class="glossary-item">
+              <h3>Fenómeno del Niño</h3>
+              <p>
+                Fenómeno climático asociado a variaciones en el océano y
+                la atmósfera del Pacífico tropical.
+              </p>
+            </article>
+
+            <article class="glossary-item">
+              <h3>Inundación</h3>
+              <p>
+                Ocupación temporal de zonas normalmente secas por agua.
+              </p>
+            </article>
+
+            <article class="glossary-item">
+              <h3>Huaico</h3>
+              <p>
+                Flujo rápido de lodo, rocas y otros materiales que desciende
+                por una quebrada o cauce.
+              </p>
+            </article>
+
+            <article class="glossary-item">
+              <h3>Precipitación</h3>
+              <p>
+                Agua que cae desde la atmósfera, como lluvia, nieve o granizo.
+              </p>
+            </article>
+
+            <article class="glossary-item">
+              <h3>Prevención</h3>
+              <p>
+                Acciones realizadas para reducir riesgos y posibles daños.
+              </p>
+            </article>
+
+            <article class="glossary-item">
+              <h3>Alerta</h3>
+              <p>
+                Información emitida para advertir sobre una situación que
+                requiere atención.
+              </p>
+            </article>
+
+            <article class="glossary-item">
+              <h3>Riesgo</h3>
+              <p>
+                Posibilidad de que ocurra un daño debido a una amenaza y a
+                condiciones de exposición y vulnerabilidad.
+              </p>
+            </article>
+
+            <article class="glossary-item">
+              <h3>Vulnerabilidad</h3>
+              <p>
+                Condiciones que pueden aumentar el impacto de un evento.
+              </p>
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             FUENTES
+        ========================== -->
+        <section class="app-section" id="fuentes">
+
+          <div class="page-hero">
+            <span class="section-kicker">REFERENCIAS</span>
+            <h2>Fuentes recomendadas</h2>
+            <p>
+              Para la versión académica de la app conviene enlazar directamente
+              a fuentes oficiales y científicas.
+            </p>
+          </div>
+
+          <div class="sources-grid">
+
+            <a
+              class="source-card"
+              href="https://www.senamhi.gob.pe/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>01</span>
+              <strong>SENAMHI</strong>
+              <p>
+                Información meteorológica y climática del Perú.
+              </p>
+              <em>Visitar sitio ↗</em>
+            </a>
+
+            <a
+              class="source-card"
+              href="https://www.indeci.gob.pe/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>02</span>
+              <strong>INDECI</strong>
+              <p>
+                Información sobre preparación y gestión de emergencias.
+              </p>
+              <em>Visitar sitio ↗</em>
+            </a>
+
+            <a
+              class="source-card"
+              href="https://www.gob.pe/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>03</span>
+              <strong>Gobierno del Perú</strong>
+              <p>
+                Portal oficial para información y servicios públicos.
+              </p>
+              <em>Visitar sitio ↗</em>
+            </a>
+
+          </div>
+
+          <div class="academic-note">
+            <strong>Nota para el proyecto</strong>
+            <p>
+              La información de esta aplicación debe revisarse y actualizarse
+              usando fuentes oficiales antes de presentarla como información
+              operativa o de emergencia.
+            </p>
+          </div>
+
+        </section>
+
+      </div>
+
+
+      <!-- =========================
+           FOOTER
+      ========================== -->
+      <footer class="footer">
+
+        <div>
+          <strong>Fenómeno del Niño</strong>
+          <span>Aplicación educativa</span>
+        </div>
+
+        <span id="currentDate"></span>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+
+  <!-- =========================
+       MODAL ABOUT
+  ========================== -->
+  <div class="modal hidden" id="aboutModal">
+
+    <div class="modal-overlay" data-close-modal></div>
+
+    <div class="modal-box">
+
+      <button class="modal-close" data-close-modal>
+        ×
+      </button>
+
+      <span class="section-kicker">SOBRE LA APP</span>
+
+      <h3>Fenómeno del Niño</h3>
+
+      <p>
+        Esta aplicación fue diseñada como una herramienta educativa para
+        aprender sobre el Fenómeno del Niño, sus posibles impactos y la
+        importancia de la prevención.
+      </p>
+
+      <div class="modal-info">
+        <span>Versión</span>
+        <strong>1.0</strong>
+      </div>
+
+      <div class="modal-info">
+        <span>Tipo</span>
+        <strong>Educativa</strong>
+      </div>
+
+      <button class="primary-button" data-close-modal>
+        Cerrar
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       NOTIFICATION
+  ========================== -->
+  <div class="toast" id="toast">
+    <span id="toastText">Guardado</span>
+  </div>
+
+</body>
+</html>
